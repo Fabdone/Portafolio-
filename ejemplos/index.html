@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NaturaGlow - Belleza Natural</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- Logo -->
+                <a href="#" class="logo">
+                    <div class="logo-circle">
+                        <span>N</span>
+                    </div>
+                    <span class="logo-text">NaturaGlow</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="nav-links" id="navLinks">
+                    <a href="#productos" class="nav-link">Productos</a>
+                    <a href="#beneficios" class="nav-link">Beneficios</a>
+                    <a href="#testimonios" class="nav-link">Testimonios</a>
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="nav-actions">
+                    <button class="icon-btn" aria-label="Favoritos">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                    </button>
+                    
+                    <button class="icon-btn cart-btn" id="cartBtn" aria-label="Carrito">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                        <span class="cart-badge" id="cartBadge">0</span>
+                    </button>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">
+                        <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                        <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#productos" class="mobile-link">Productos</a>
+                <a href="#beneficios" class="mobile-link">Beneficios</a>
+                <a href="#testimonios" class="mobile-link">Testimonios</a>
+                <a href="#contacto" class="mobile-link">Contacto</a>
+                <button class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Mi Cuenta</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="https://customer-assets.emergentagent.com/job_b1307d81-6616-4276-b11d-e546e179b495/artifacts/t4wgzo0v_descarga%20%2866%29.jpeg" alt="Productos naturales">
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                    </svg>
+                    <span>100% Natural · Orgánico · Sostenible</span>
+                </div>
+
+                <h1 class="hero-title">
+                    Descubre Tu
+                    <span class="hero-title-accent">Belleza Natural</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Productos de cuidado de la piel elaborados con ingredientes botánicos puros.
+                    Nutre, revitaliza y realza tu resplandor natural.
+                </p>
+
+                <div class="hero-buttons">
+                    <button class="btn btn-secondary" onclick="scrollToSection('productos')">
+                        Explorar Productos
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                    <button class="btn btn-outline-light">Nuestra Historia</button>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Natural</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">50k+</div>
+                        <div class="stat-label">Clientes Felices</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">4.9</div>
+                        <div class="stat-label">Calificación</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-gradient"></div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="section" id="productos">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Colección Natural</span>
+                <h2 class="section-title">Nuestros Productos</h2>
+                <p class="section-subtitle">Cuidado de la piel elaborado con los mejores ingredientes naturales y botánicos</p>
+            </div>
+
+            <!-- Category Tabs -->
+            <div class="tabs">
+                <button class="tab active" data-category="all">Todos</button>
+                <button class="tab" data-category="serum">Sérums</button>
+                <button class="tab" data-category="moisturizer">Hidratantes</button>
+                <button class="tab" data-category="cleanser">Limpiadores</button>
+                <button class="tab" data-category="mask">Mascarillas</button>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS SECTION -->
+    <section class="section bg-gradient-subtle" id="beneficios">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">¿Por Qué Elegirnos?</span>
+                <h2 class="section-title">Beneficios Naturales</h2>
+                <p class="section-subtitle">Comprometidos con tu belleza y el bienestar del planeta</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2l-7 3v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-7-3z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="benefit-title">100% Natural</h3>
+                    <p class="benefit-desc">Ingredientes botánicos puros sin químicos dañinos ni parabenos</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="benefit-title">Hidratación Profunda</h3>
+                    <p class="benefit-desc">Fórmulas que penetran y nutren tu piel desde el interior</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="benefit-title">Resultados Visibles</h3>
+                    <p class="benefit-desc">Mejora notable en textura, tono y luminosidad en semanas</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="benefit-title">Dermatológicamente Probado</h3>
+                    <p class="benefit-desc">Testado clínicamente para todo tipo de pieles, incluso sensibles</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="benefit-title">Cruelty-Free</h3>
+                    <p class="benefit-desc">Productos no testados en animales, certificado vegano</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 4v6h-6"></path>
+                            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                        </svg>
+                    </div>
+                    <h3 class="benefit-title">Empaque Sostenible</h3>
+                    <p class="benefit-desc">Envases reciclables y biodegradables para cuidar el planeta</p>
+                </div>
+            </div>
+
+            <!-- CTA Banner -->
+            <div class="cta-banner">
+                <h3>Transforma Tu Rutina de Cuidado</h3>
+                <p>Únete a miles de personas que han descubierto el poder de lo natural</p>
+                <div class="cta-banner-buttons">
+                    <button class="btn btn-secondary">Ver Colección Completa</button>
+                    <button class="btn btn-outline-light">Aprende Más</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="section bg-accent" id="testimonios">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Testimonios</span>
+                <h2 class="section-title">Lo Que Dicen Nuestras Clientas</h2>
+                <p class="section-subtitle">Historias reales de transformación y satisfacción</p>
+            </div>
+
+            <div class="testimonials-container">
+                <div class="testimonials-wrapper" id="testimonialsWrapper">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150" alt="María González">
+                        </div>
+                        <div class="testimonial-stars">
+                            ★★★★★
+                        </div>
+                        <blockquote class="testimonial-text">
+                            "El sérum iluminador ha transformado mi piel completamente. Noto una diferencia increíble en la textura y luminosidad. ¡100% recomendado!"
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <p class="testimonial-name">María González</p>
+                            <p class="testimonial-role">Cliente Verificada</p>
+                            <p class="testimonial-product">Sérum Facial Iluminador</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150" alt="Ana Martínez">
+                        </div>
+                        <div class="testimonial-stars">
+                            ★★★★★
+                        </div>
+                        <blockquote class="testimonial-text">
+                            "Productos naturales de verdad. Mi piel sensible nunca había estado tan bien. La crema hidratante es perfecta para el día a día."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <p class="testimonial-name">Ana Martínez</p>
+                            <p class="testimonial-role">Cliente Verificada</p>
+                            <p class="testimonial-product">Crema Hidratante Natural</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=150" alt="Carmen Silva">
+                        </div>
+                        <div class="testimonial-stars">
+                            ★★★★★
+                        </div>
+                        <blockquote class="testimonial-text">
+                            "Me encanta que sean productos sostenibles y cruelty-free. La calidad es excepcional y los resultados se ven rápido."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <p class="testimonial-name">Carmen Silva</p>
+                            <p class="testimonial-role">Cliente Verificada</p>
+                            <p class="testimonial-product">Aceite Facial Revitalizante</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="testimonials-nav">
+                    <button class="testimonial-btn" id="prevTestimonial" aria-label="Anterior">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <div class="testimonials-dots" id="testimonialsDots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <button class="testimonial-btn" id="nextTestimonial" aria-label="Siguiente">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">50k+</div>
+                    <div class="stat-label">Clientes Satisfechas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.9</div>
+                    <div class="stat-label">Calificación Promedio</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Recomendarían</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15k+</div>
+                    <div class="stat-label">Reseñas 5 Estrellas</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="section cta-section" id="contacto">
+        <div class="cta-pattern"></div>
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Comienza Tu Transformación Hoy</h2>
+                <p class="cta-subtitle">
+                    Descubre la diferencia que hacen los productos naturales en tu piel.
+                    Tu rutina de belleza merece lo mejor de la naturaleza.
+                </p>
+
+                <div class="cta-features">
+                    <div class="cta-feature">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="1" y="3" width="15" height="13"></rect>
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                        </svg>
+                        <h4>Envío Gratis</h4>
+                        <p>En pedidos superiores a 50€</p>
+                    </div>
+                    <div class="cta-feature">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 12 20 22 4 22 4 12"></polyline>
+                            <rect x="2" y="7" width="20" height="5"></rect>
+                            <line x1="12" y1="22" x2="12" y2="7"></line>
+                            <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+                            <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+                        </svg>
+                        <h4>Regalo Especial</h4>
+                        <p>Muestra gratis en tu primer pedido</p>
+                    </div>
+                    <div class="cta-feature">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <h4>30 Días</h4>
+                        <p>Garantía de devolución</p>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <button class="btn btn-secondary btn-lg" onclick="scrollToSection('productos')">Comprar Ahora</button>
+                    <button class="btn btn-outline-light btn-lg">Contáctanos</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Newsletter -->
+            <div class="newsletter">
+                <div class="newsletter-content">
+                    <h3>Únete a Nuestra Comunidad</h3>
+                    <p>Recibe tips de belleza, ofertas exclusivas y novedades en tu email</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="tu@email.com" required>
+                        <button type="submit" class="btn btn-secondary">Suscribirme</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer Content -->
+            <div class="footer-content">
+                <div class="footer-column footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-circle">
+                            <span>N</span>
+                        </div>
+                        <span class="logo-text">NaturaGlow</span>
+                    </div>
+                    <p>Cuidado de la piel natural y sostenible. Comprometidos con tu belleza y el bienestar del planeta.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Tienda</h4>
+                    <ul>
+                        <li><a href="#productos">Todos los Productos</a></li>
+                        <li><a href="#productos">Sérums</a></li>
+                        <li><a href="#productos">Hidratantes</a></li>
+                        <li><a href="#productos">Limpiadores</a></li>
+                        <li><a href="#productos">Mascarillas</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Sobre Nosotros</h4>
+                    <ul>
+                        <li><a href="#">Nuestra Historia</a></li>
+                        <li><a href="#">Ingredientes</a></li>
+                        <li><a href="#">Sostenibilidad</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Soporte</h4>
+                    <ul>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Envíos</a></li>
+                        <li><a href="#">Devoluciones</a></li>
+                        <li><a href="#">Seguimiento de Pedido</a></li>
+                        <li><a href="#">Atención al Cliente</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <!-- Contact Info -->
+            <div class="footer-contact">
+                <div class="contact-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <div>
+                        <p class="contact-label">Email</p>
+                        <a href="mailto:hola@naturaglow.com">hola@naturaglow.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <div>
+                        <p class="contact-label">Teléfono</p>
+                        <a href="tel:+34900123456">+34 900 123 456</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <div>
+                        <p class="contact-label">Dirección</p>
+                        <p>Calle Natural 123, Madrid, España</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2024 NaturaGlow. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Términos de Servicio</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        <span id="toastMessage">Producto agregado al carrito</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

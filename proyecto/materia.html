@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COLLEGE Barinas - Gestión de Materias</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #001f3f; /* Azul oscuro de fondo principal */
+            color: #fff; /* Texto blanco por defecto */
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #003366; /* Azul oscuro para la cabecera */
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Espacio entre el título y los botones */
+        }
+
+        .uts-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin: 0;
+            white-space: nowrap; /* Evita que el título se rompa */
+        }
+
+        .header-btn {
+            background-color: #0056b3; /* Azul para los botones de cabecera */
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+            white-space: nowrap; /* Evita que el texto del botón se rompa */
+        }
+
+        .header-btn:hover {
+            background-color: #004085; /* Azul más oscuro al pasar el ratón */
+        }
+
+        nav ul.navbar {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+        }
+
+        nav ul.navbar li {
+            margin: 0 10px; /* Espacio entre los elementos de la barra de navegación */
+        }
+
+        nav ul.navbar li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            display: block; /* Asegura que el área de clic sea todo el padding */
+        }
+
+        nav ul.navbar li a:hover,
+        nav ul.navbar li a.active {
+            background-color: #0056b3; /* Azul más claro al pasar el ratón o activo */
+        }
+
+        /* Estilos para el menú desplegable */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            color: white;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block; /* Para que ocupe todo el ancho del li */
+        }
+
+        .dropbtn:hover {
+            background-color: #0056b3;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #003366; /* Fondo azul oscuro para el contenido del desplegable */
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000; /* Asegura que esté por encima de otros elementos */
+            border-radius: 5px;
+            margin-top: 5px;
+            left: 0; /* Alinea el menú desplegable a la izquierda de su botón */
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+            white-space: nowrap; /* Evita que los ítems del menú se rompan */
+        }
+
+        .dropdown-content a:hover {
+            background-color: #0056b3;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff; /* Fondo blanco para el contenido principal */
+            color: #001f3f; /* Texto en azul oscuro en el contenido principal */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        /* --- Estilos para secciones de módulos --- */
+        .module-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #ccc; /* Borde gris claro para contraste */
+            border-radius: 5px;
+            background-color: #f0f0f0; /* Fondo gris muy claro para módulos */
+            color: #001f3f; /* Texto oscuro en los módulos */
+            text-align: left;
+        }
+
+        .module-section h2 {
+            color: #003366; /* Títulos de sección en azul oscuro */
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .module-section form {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 15px;
+            margin-top: 20px;
+            align-items: center;
+        }
+
+        .module-section form label {
+            font-weight: bold;
+            text-align: right;
+            padding-right: 10px;
+            color: #003366; /* Etiquetas de formulario en azul oscuro */
+        }
+
+        .module-section form input[type="text"],
+        .module-section form input[type="number"],
+        .module-section form input[type="email"],
+        .module-section form input[type="tel"],
+        .module-section form input[type="date"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #003366; /* Borde azul oscuro para inputs */
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #fff; /* Fondo blanco para inputs */
+            color: #001f3f; /* Texto azul oscuro en inputs */
+        }
+
+        .module-section form input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .module-section form button {
+            grid-column: 1 / span 2;
+            background-color: #0056b3; /* Botón azul */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .module-section form button:hover {
+            background-color: #004085; /* Azul más oscuro al pasar el ratón */
+        }
+
+        .list-container {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .list-container h3 {
+            color: #003366; /* Títulos de lista en azul oscuro */
+        }
+
+        .list-container ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list-container ul li {
+            background-color: #e0e0e0; /* Gris claro para los elementos de la lista */
+            color: #003366; /* Texto de la lista en azul oscuro */
+            margin-bottom: 8px;
+            padding: 10px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Permite que el contenido del li se envuelva */
+        }
+
+        .list-container ul li button {
+            background-color: #dc3545; /* Botón rojo para eliminar */
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: background-color 0.3s ease;
+            margin-left: 10px; /* Espacio a la izquierda del botón */
+        }
+
+        .list-container ul li button:hover {
+            background-color: #c82333;
+        }
+
+        /* --- Estilos de Modales (Ventanas Emergentes, repetidos para cada página) --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+            color: #001f3f;
+        }
+
+        .modal-content h2 {
+            color: #003366;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .modal-content label {
+            text-align: left;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #003366;
+        }
+
+        .modal-content input[type="text"],
+        .modal-content input[type="email"],
+        .modal-content input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #003366;
+            border-radius: 5px;
+            box-sizing: border-box;
+            color: #001f3f;
+        }
+
+        .modal-content button[type="submit"] {
+            background-color: #0056b3;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .modal-content button[type="submit"]:hover {
+            background-color: #004085;
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .header-left {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            nav ul.navbar {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            nav ul.navbar li {
+                width: 100%;
+                margin: 0;
+                border-bottom: 1px solid #002952;
+            }
+
+            nav ul.navbar li:last-child {
+                border-bottom: none;
+            }
+
+            .dropbtn {
+                width: 100%;
+                text-align: left;
+            }
+
+            .dropdown-content {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                margin-top: 0;
+                border-radius: 0;
+            }
+
+            .dropdown-content a {
+                padding-left: 30px; /* Indentar elementos del submenú */
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 20px;
+            }
+
+            .module-section form {
+                grid-template-columns: 1fr;
+            }
+
+            .module-section form label {
+                text-align: left;
+                padding-right: 0;
+            }
+
+            .uts-title {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-btn {
+                padding: 6px 10px;
+                font-size: 0.8em;
+            }
+
+            .uts-title {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <span class="uts-title">COLLEGE BARINAS</span>
+            <button id="ingresarBtn" class="header-btn">Ingresar</button>
+            <button id="registrarseBtn" class="header-btn">Registrarse</button>
+        </div>
+        <nav>
+            <ul class="navbar">
+                <li><a href="index.html">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn active">Módulos &#9662;</a>
+                    <div class="dropdown-content">
+                        <a href="aula.html">Aula</a>
+                        <a href="carrera.html">Carrera</a>
+                        <a href="carreraEstudiante.html">Carrera Estudiante</a>
+                        <a href="documentos.html">Documentos</a>
+                        <a href="estudiante.html">Estudiante</a>
+                        <a href="horarioEstudiante.html">Horario Estudiante</a>
+                        <a href="horarioProfesor.html">Horario Profesor</a>
+                        <a href="inscripcion.html">Inscripción</a>
+                        <a href="materia.html">Materia</a>
+                        <a href="materiaProfesor.html">Materia Profesor</a>
+                        <a href="nota.html">Nota</a>
+                        <a href="pagos.html">Pagos</a>
+                        <a href="profesor.html">Profesor</a>
+                        <a href="semestre.html">Semestre</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="materia" class="module-section">
+            <h2>Gestión de Materias</h2>
+            <form id="materiaForm">
+                <label for="idMateria">ID Materia:</label>
+                <input type="text" id="idMateria" required>
+
+                <label for="nombreMateria">Nombre de la Materia:</label>
+                <input type="text" id="nombreMateria" required>
+
+                <label for="creditosMateria">Créditos:</label>
+                <input type="number" id="creditosMateria" required min="1">
+
+                <label for="semestreMateria">Semestre:</label>
+                <input type="number" id="semestreMateria" required min="1">
+
+                <label for="carreraMateria">Carrera Asociada:</label>
+                <input type="text" id="carreraMateria" placeholder="Ej: PNF Informática" required>
+
+                <button type="submit">Agregar Materia</button>
+            </form>
+            <div id="materiaList" class="list-container">
+                <h3>Materias Registradas</h3>
+                <ul>
+                    </ul>
+            </div>
+        </section>
+    </main>
+
+    <div id="ingresarModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Ingresar al Sistema</h2>
+            <form id="loginForm">
+                <label for="loginCorreo">Correo Electrónico:</label>
+                <input type="email" id="loginCorreo" required>
+
+                <label for="loginPassword">Contraseña:</label>
+                <input type="password" id="loginPassword" required>
+
+                <button type="submit">Ingresar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="registrarseModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Registrarse en el Sistema</h2>
+            <form id="registerForm">
+                <label for="regNombre">Nombre:</label>
+                <input type="text" id="regNombre" required>
+
+                <label for="regApellido">Apellido:</label>
+                <input type="text" id="regApellido" required>
+
+                <label for="regCorreo">Correo Electrónico:</label>
+                <input type="email" id="regCorreo" required>
+
+                <label for="regPassword">Crear Contraseña:</label>
+                <input type="password" id="regPassword" required>
+
+                <label for="regCarrera">Carrera:</label>
+                <input type="text" id="regCarrera" placeholder="Ej: PNF Informática" required>
+
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lógica de Modales (común en todas las páginas de módulo)
+            const ingresarBtn = document.getElementById('ingresarBtn');
+            const registrarseBtn = document.getElementById('registrarseBtn');
+            const ingresarModal = document.getElementById('ingresarModal');
+            const registrarseModal = document.getElementById('registrarseModal');
+            const closeButtons = document.querySelectorAll('.modal .close-button');
+
+            if (ingresarBtn) {
+                ingresarBtn.addEventListener('click', () => {
+                    ingresarModal.style.display = 'flex';
+                });
+            }
+            if (registrarseBtn) {
+                registrarseBtn.addEventListener('click', () => {
+                    registrarseModal.style.display = 'flex';
+                });
+            }
+
+            closeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    ingresarModal.style.display = 'none';
+                    registrarseModal.style.display = 'none';
+                });
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target === ingresarModal) {
+                    ingresarModal.style.display = 'none';
+                }
+                if (event.target === registrarseModal) {
+                    registrarseModal.style.display = 'none';
+                }
+            });
+
+            // Manejo de Formularios de Login/Registro (solo demo, común)
+            const loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                loginForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const correo = document.getElementById('loginCorreo').value;
+                    const password = document.getElementById('loginPassword').value;
+                    console.log('Intento de Ingreso:', { correo, password });
+                    alert('Intento de ingreso con: ' + correo + '. (Funcionalidad de backend no implementada)');
+                    ingresarModal.style.display = 'none';
+                    loginForm.reset();
+                });
+            }
+
+            const registerForm = document.getElementById('registerForm');
+            if (registerForm) {
+                registerForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const nombre = document.getElementById('regNombre').value;
+                    const apellido = document.getElementById('regApellido').value;
+                    const correo = document.getElementById('regCorreo').value;
+                    const password = document.getElementById('regPassword').value;
+                    const carrera = document.getElementById('regCarrera').value;
+                    console.log('Intento de Registro:', { nombre, apellido, correo, password, carrera });
+                    alert('Registro exitoso para: ' + nombre + ' ' + apellido + ' en ' + carrera + '. (Funcionalidad de backend no implementada)');
+                    registrarseModal.style.display = 'none';
+                    registerForm.reset();
+                });
+            }
+
+            // --- Lógica Específica del Módulo MATERIA ---
+            const materiaForm = document.getElementById('materiaForm');
+            const materiaListElement = document.getElementById('materiaList').querySelector('ul');
+
+            function saveData(key, data) {
+                let items = JSON.parse(localStorage.getItem(key)) || [];
+                items.push(data);
+                localStorage.setItem(key, JSON.stringify(items));
+                displayData(key, items);
+            }
+
+            function displayData(key, dataArray) {
+                if (!materiaListElement) return;
+
+                materiaListElement.innerHTML = ''; // Limpia la lista
+
+                if (dataArray.length === 0) {
+                    materiaListElement.innerHTML = '<li>No hay materias registradas.</li>';
+                    return;
+                }
+
+                dataArray.forEach((item, index) => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        ID: ${item.idMateria}, Nombre: ${item.nombreMateria}, Créditos: ${item.creditosMateria}, Semestre: ${item.semestreMateria}, Carrera: ${item.carreraMateria}
+                        <button onclick="deleteItem('${key}', ${index})">Eliminar</button>
+                    `;
+                    materiaListElement.appendChild(li);
+                });
+            }
+
+            window.deleteItem = function(key, index) {
+                let items = JSON.parse(localStorage.getItem(key));
+                items.splice(index, 1);
+                localStorage.setItem(key, JSON.stringify(items));
+                displayData(key, items);
+            };
+
+            if (materiaForm) {
+                materiaForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const materia = {
+                        idMateria: document.getElementById('idMateria').value,
+                        nombreMateria: document.getElementById('nombreMateria').value,
+                        creditosMateria: document.getElementById('creditosMateria').value,
+                        semestreMateria: document.getElementById('semestreMateria').value,
+                        carreraMateria: document.getElementById('carreraMateria').value
+                    };
+                    saveData('materias', materia);
+                    materiaForm.reset();
+                });
+                const initialMaterias = JSON.parse(localStorage.getItem('materias')) || [];
+                displayData('materias', initialMaterias);
+            }
+        });
+    </script>
+</body>
+</html>
